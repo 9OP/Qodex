@@ -1,0 +1,103 @@
+/*
+  Question-list
+*/
+.question {
+  margin-top: 25px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.082);
+  transition: 0.25s;
+}
+
+.question:hover {
+  box-shadow: 1px 1px 10px rgba(0, 140, 255, 0.226);
+}
+
+.qodex-badge {
+  font-size: 1.3em;
+}
+
+.card-body {
+  text-decoration: none;
+  color: black;
+}
+
+.card-body:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.card-text {
+  color: #555;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.score {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.check {
+  padding: 0 15px;
+}
+
+.star {
+  padding: 0 15px;
+}
+
+/*
+  Question-thread
+*/
+.answer-thread {
+  padding: 0;
+}
+
+.answer {
+  margin-bottom: 1rem;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.048);
+}
+
+.vote {
+  box-shadow: none;
+  /* border: 0; */
+}
+
+.spacer {
+  padding: 0 5px;
+}
+
+.cairet {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.plus:hover {
+  color: #0275d8;
+}
+
+.favorite:hover {
+  color: #cbce09;
+}
+
+.minus:hover {
+  color: #d80202;
+}
+
+.select:hover {
+  color: #1cd404;
+}
+
+.disabled {
+  color: rgba(128, 128, 128, 0.39);
+  cursor: auto;
+}
+
+/*
+* Answer form
+*/
+.answer-form {
+  margin-top: 40px;
+  padding: 0;
+  /* box-shadow: -2px 0 10px rgba(0, 0, 0, 0.25); */
+}

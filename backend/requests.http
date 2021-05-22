@@ -1,0 +1,153 @@
+# @hostname = http://localhost
+@hostname = https://qodex-api.herokuapp.com
+@port = 443
+@host = {{hostname}}:{{port}}
+
+
+### Register
+POST {{host}}/api/login/signup
+Content-Type: application/json
+
+{
+    "user": {
+        "name": "martin",
+        "email": "martin-guyard@live.fr",
+        "password": "123456789"
+    }
+}
+
+
+### Login
+POST {{host}}/api/login/signin
+Content-Type: application/json
+
+{
+    "user": {
+        "email": "martin-guyard@live.fr",
+        "password": "123456789"
+    }
+}
+
+
+### Authenticated
+GET {{host}}/api/login/authenticated
+
+
+### Get stats
+GET {{host}}/api/stats
+
+
+### Get questions
+GET {{host}}/api/questions
+
+
+### Get questions (search)
+GET {{host}}/api/questions
+?search=expense
+
+
+### Post Qodex
+# @name postqodex
+POST  {{host}}/api/qodexes
+Content-Type: application/json
+
+{
+    "qodex": {
+        "name": "My Qodex",
+        "description": "Test qodex"
+    }
+}
+
+@qodex_id = {{postqodex.response.body.id}}
+
+
+### Get Qodexes
+GET {{host}}/api/qodexes
+Content-Type: application/json
+
+
+### Get Qodex by id
+GET {{host}}/api/qodexes/{{qodex_id}}
+Content-Type: application/json
+
+
+### Post question
+# @name postquestion
+POST  {{host}}/api/questions
+Content-Type: application/json
+
+{
+    "question": {
+        "title": "My Question?",
+        "question": "My question is great!",
+        "qodex": {"id": "{{qodex_id}}" }
+    }
+}
+
+@q_id = {{postquestion.response.body.id}}
+
+
+### Post answer
+POST {{host}}/api/questions/{{q_id}}
+Content-Type: application/json
+
+{
+    "answer": {
+        "answer": "This is a great answer!" 
+    }
+}
+
+
+### Get thread
+GET {{host}}/api/questions/{{q_id}}
+Content-Type: application/json
+
+
+### Patch question
+PATCH {{host}}/api/questions/{{q_id}}
+Content-Type: application/json
+
+{
+    "patch": {
+        "title": "Patched title!",
+        "question": "Patched question ..."
+    }
+}
+
+
+### Upvote question
+PATCH {{host}}/api/questions/{{q_id}}
+Content-Type: application/json
+
+{
+    "vote": "upvote"
+}
+
+
+### Downvote question
+PATCH {{host}}/api/questions/{{q_id}}
+Content-Type: application/json
+
+{
+    "vote": "downvote"
+}
+
+
+### Follow question
+PUT  {{host}}/api/questions/{{q_id}}/follow
+Content-Type: application/json
+
+
+### Unfollow question
+PUT {{host}}/api/questions/{{q_id}}/unfollow
+Content-Type: application/json
+
+
+### Get favorite questions
+GET {{host}}/api/user/favorites
+Content-Type: application/json
+
+
+### Get user
+GET {{host}}/api/user
+Content-Type: application/json
